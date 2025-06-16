@@ -44,7 +44,7 @@ const AnimatedButton = ({ icon, text, iconSize, arrow, bgColor, color,id }) => {
       className=" relative overflow-hidden group md:w-[20vw] md:h-[3.5vw] w-full h-[13vw] text-nowrap bg-color text-black font-[bold] flex items-center justify-between px-0.5"
     >
       <div
-        className={`h-[95.5%] w-[12vw] md:h-[95.5%] md:w-[3.25vw] bg-black text-white flex items-center justify-center md:text-[${iconSize}vw] text-[5vw] z-50`}
+        className={`h-[95.5%] w-[12vw] md:h-[95.5%] md:w-[3.25vw] bg-black text-white flex items-center justify-center md:text-[2vw] text-[5vw] z-50`}
         style={{ backgroundColor: color, color: bgColor }}
       >
         {icon}

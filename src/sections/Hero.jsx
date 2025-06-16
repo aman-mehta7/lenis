@@ -184,13 +184,13 @@ const Hero = () => {
 
         {/* footer */}
 
-        <div className="md:mr-[6vw] md:mt-10 -mt-[40vw]">
+        <div className="md:mr-[6vw] md:mt-5 -mt-[40vw]">
           <div className="flex flex-col md:flex-row  md:items-end gap-[5vw] p-10 ">
             <div className="md:flex md:items-end md:pl-18 md:gap-[8vw] w-[50%] ">
               <div>
                 <div
                   id="yoyo"
-                  className="scrollToExplore hidden md:block w-[.13vw] h-[10vh] bg-color absolute left-13 "
+                  className="scrollToExplore hidden md:block w-[.13vw] h-[10vh] bg-color absolute left-20 "
                 />
                 <h1 className="scrollToExplore hidden md:block text-nowrap text-left font-[compressed] uppercase text-[1.5vw] leading-[1.5vw]">
                   scroll <br /> to explore
