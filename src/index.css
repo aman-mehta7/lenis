@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'bold';
+    src: url('./assets/fonts/Slussen-Bold.woff2'),
+}
+@font-face {
+    font-family: 'compressed';
+    src:  url('./assets/fonts/Slussen-Compressed-Black.woff2'),
+}
+@font-face {
+    font-family: 'expanded';
+    src: url('./assets/fonts/Slussen-Expanded-Black.woff2'),
+}
+@font-face {
+    font-family: 'med';
+    src: url('./assets/fonts/Slussen-Medium.woff2'),
+}
+@font-face {
+    font-family: 'regular';
+    src: url('./assets/fonts/Slussen-Regular.woff2'),
+}
+@font-face {
+    font-family: 'semibold';
+    src: url('./assets/fonts/Slussen-Semibold.woff2'),
+}
+/* format('woff2'),
+url() format('woff3'),
+url('') format('woff4'),
+url('') format('woff5'),
+url('') format('woff6'); */
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #000;
+    color: #fff;
+}
+
+@layer utilities {
+    .text-color {
+        color : #FF98A2;
+    }
+    .border-color {
+        border-color : #FF98A2;
+    }
+    .bg-color {
+        background-color: #FF98A2;
+    }
+}
+
+
+@layer utilities {
+  .text-outline-white {
+    text-shadow:
+      -1px -1px 0 #ff98a234,
+       1px -1px 0 #FF98A2,
+      -1px  1px 0 #FF98A2,
+       1px  1px 0 #FF98A2;
+  }
+}
