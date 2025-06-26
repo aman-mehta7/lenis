@@ -73,21 +73,21 @@ const Popup = () => {
   return (
     <div className="uppercase mt-[15vw]  h-[1100vh] w-full ">
       <div className=" sticky top-0 h-screen w-full p-5">
-        <div className="overflow-hidden w-full h-full"> 
+        <div className="overflow-hidden w-full h-full pt-[5vw] md:p-0"> 
 
-      <h1 className="ZoomOut text-[8.5vw] leading-[8vw] font-[compressed] h-fit">
+      <h1 className="ZoomOut text-[20vw] leading-[20vw] md:text-[8.5vw] md:leading-[8vw] font-[compressed] h-fit">
         so we built <br />
         <span className="text-color">web scrolling</span>
       </h1>
       <div className=" absolute right-0 top-0 overflow-hidden bg-transparent w-full h-screen flex items-center justify-center">
 
-      <h1 className=" apper text-center text-[15.5vw] lg:text-[8.5vw] leading-[14vw] lg:leading-[8vw] font-[expanded] h-fit mt-[30vw] md:mt-[6vw] lg:mt-0">
+      <h1 className=" apper text-center md:text-[23vw] text-[29vw] leading-[23vw]  lg:text-[8.5vw] md:leading-[23vw] lg:leading-[8vw] font-[expanded] h-fit mt-[30vw] md:mt-[6vw] lg:mt-0">
         ENTER <br/>
         LENIS
       </h1>
-      <div className="apper2 bg-white absolute z-10" />
+      <div className="apper2 bg-white absolute z-10 hidden md:block" />
       </div>
-       <h1 className="ZoomOut text-[8.5vw] text-right leading-[8vw] font-[compressed] h-fit mt-[65vw] md:mt-[55vw] lg:mt-[23vw]">
+       <h1 className="ZoomOut text-[8.5vw] text-right leading-[20vw] md:text-[8.5vw] md:leading-[8vw] font-[compressed] h-fit mt-[100vw] md:mt-[55vw] lg:mt-[23vw]">
         As it should be
        </h1>
         </div>

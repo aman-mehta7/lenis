@@ -41,10 +41,10 @@ const AnimatedButton = ({ icon, text, iconSize, arrow, bgColor, color,id }) => {
       style={{ color: color }}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      className=" relative overflow-hidden group md:w-[20vw] md:h-[3.5vw] w-full h-[13vw] text-nowrap bg-color text-black font-[bold] flex items-center justify-between px-0.5"
+      className=" relative overflow-hidden group md:w-[40vw] lg:w-[21vw] md:h-[5vw] lg:h-[3.5vw] w-full h-[13vw] text-nowrap bg-color text-black font-[bold] flex items-center justify-between px-0.5"
     >
       <div
-        className={`h-[95.5%] w-[12vw] md:h-[95.5%] md:w-[3.25vw] bg-black text-white flex items-center justify-center md:text-[2vw] text-[5vw] z-50`}
+        className={`h-[95.5%] w-[12vw] md:h-[95.5%] md:w-[5vw] lg:h-[95.5%] lg:w-[3.25vw] bg-black text-white flex items-center justify-center md:text-[2vw] text-[5vw] z-50`}
         style={{ backgroundColor: color, color: bgColor }}
       >
         {icon}
@@ -55,7 +55,7 @@ const AnimatedButton = ({ icon, text, iconSize, arrow, bgColor, color,id }) => {
         ref={textRef}
         className="z-30 flex bg-color items-center justify-center gap-[1vw] absolute bottom-0 left-0 w-full h-full"
       >
-        <span className="ml-[2vw] z-10 text-[3vw] md:text-[1vw]">{text}</span>
+        <span className="ml-[2vw] z-10 text-[3vw] md:text-[1.5vw] lg:text-[1vw]">{text}</span>
         <span className="font-bold scale-140">{arrow}</span>
       </div>
 
@@ -64,7 +64,7 @@ const AnimatedButton = ({ icon, text, iconSize, arrow, bgColor, color,id }) => {
         ref={bgRef}
         className={`z-10 flex bg-${bgColor} items-center justify-center gap-[1vw] absolute bottom-0 left-0 w-full h-full `}
       >
-        <span className="ml-[2vw] z-10 text-[3vw] md:text-[1vw]">{text}</span>
+        <span className="ml-[2vw] z-10 text-[3vw]  md:text-[1.5vw] lg:text-[1vw]">{text}</span>
         <span className="font-bold scale-140">{arrow}</span>
       </div>
     </button>

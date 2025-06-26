@@ -164,11 +164,11 @@ const Hero = () => {
           <div className="flex flex-col items-center justify-normal mt-[1.5vw]">
             <h1 className="text-[32vw] font-[mid] text-gray-900 dark:text-gray-500 mb-4 -mt-[12vw] text-color lenis pointer-events-none ">
               {/* LENIS */}
-              <spam className=" text-outline-white">L</spam>
-              <spam className=" text-outline-white">E</spam>
-              <spam className=" text-outline-white">N</spam>
-              <spam className=" text-outline-white">I</spam>
-              <spam className=" text-outline-white">S</spam>
+              <span className=" text-outline-white">L</span>
+              <span className=" text-outline-white">E</span>
+              <span className=" text-outline-white">N</span>
+              <span className=" text-outline-white">I</span>
+              <span className=" text-outline-white">S</span>
             </h1>
           </div>
           <div className="mr-[6vw]">
@@ -184,7 +184,7 @@ const Hero = () => {
 
         {/* footer */}
 
-        <div className="md:mr-[6vw] md:mt-5 -mt-[40vw]">
+        <div className="-mt-[33vw] md:-mt-0 pr-[5vw] md:pr-0">
           <div className="flex flex-col md:flex-row  md:items-end gap-[5vw] p-10 ">
             <div className="md:flex md:items-end md:pl-18 md:gap-[8vw] w-[50%] ">
               <div>
@@ -196,13 +196,13 @@ const Hero = () => {
                   scroll <br /> to explore
                 </h1>
               </div>
-              <h1 className="   text-nowrap text-left font-[semibold] uppercase text-[4vw] leading-[5vw] md:text-[.9vw] md:leading-[1.1vw]">
+              <h1 className=" w-[88vw] md:w-full text-wrap md:text-nowrap text-left font-[semibold] uppercase leading-[5vw] md:text-[.9vw] md:leading-[1.1vw]">
                 A smooth scroll library <br /> fresh out of darkroom.engineering
                 <br /> website designed by Studio Freight
               </h1>
             </div>
             <div className="">
-              <div className="flex flex-col md:flex-row items-center md:items-end gap-10 w-full">
+              <div className="flex flex-col lg:flex-row items-center md:items-end gap-2 lg:gap-10 md:gap-2 w-full">
 
                 <AnimatedButton id={"hero1"} bgColor={"white"} icon={<FaGithub />} text="DOCUMENTATION" arrow={  <GoArrowUpRight />} iconSize={"1.5"} />
                 <AnimatedButton id={"hero2"} bgColor={"white"}  icon={<CiHeart />} text=" BECOME A SPONSER" arrow={  <GoArrowUpRight />} iconSize={"1.5"} />

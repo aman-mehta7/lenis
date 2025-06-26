@@ -81,8 +81,8 @@ gsap.fromTo(
     <>
       {objects.map((item, index) => (
         <div key={index} id={id} className={className} >
-          <h1 className='text-[7vw] -mt-[2vw] font-bold text-color font-[compressed]'>{item.num}</h1>
-          <p className='text-[2vw] leading-[2.2vw] uppercase w-[28vw] font-[expanded] text-wrap'>{item.title}</p>
+          <h1 className='md:text-[7vw] text-[10vw] -mt-[2vw] font-bold text-color font-[compressed]'>{item.num}</h1>
+          <p className=' w-[58vw] md:text-[2vw] text-[3vw] md:leading-[2.2vw] uppercase md:w-[28vw] font-[expanded] text-wrap'>{item.title}</p>
         </div>
 ))}
 </>

@@ -35,13 +35,13 @@ const Footer = () => {
   };
 
   return (
-    <div className="h-[100dvh] lg:h-[150dvh] w-full bg-white flex justify-between pt-[20vw]">
-      <h1 className="text-[4vw] leading-[4vw] text-black font-bold font-[expanded] uppercase p-15">
+    <div className="md:h-[80dvh] lg:h-[150dvh] w-full bg-white md:flex justify-between md:pt-[20vw] pt-[50vw] overflow-hidden">
+      <h1 className="md:text-[4vw] text-[10vw] leading-[10vw] md:leading-[4vw] text-black font-bold font-[expanded] uppercase md:p-15 p-5">
         Lenis <br />
         <span className="text-gray-700 opacity-85">in use</span>
       </h1>
 
-      <div className="text-black font-[regular] text-[2.2vw] mt-[5vw] pr-[5vw] w-[58vw]">
+      <div className="text-black font-[regular] md:text-[2.2vw] mt-[5vw] md:pr-[5vw] md:w-[58vw]">
         {data.map((row, i) => (
           <div
             key={i}
