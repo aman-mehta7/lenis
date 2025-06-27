@@ -1,29 +1,30 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: 'bold';
-    src: url('./assets/fonts/Slussen-Bold.woff2'),
+  font-family: 'bold';
+  src: url('/lenis/assets/fonts/Slussen-Bold.woff2') format('woff2');
 }
 @font-face {
-    font-family: 'compressed';
-    src:  url('./assets/fonts/Slussen-Compressed-Black.woff2'),
+  font-family: 'compressed';
+  src: url('/lenis/assets/fonts/Slussen-Compressed-Black.woff2') format('woff2');
 }
 @font-face {
-    font-family: 'expanded';
-    src: url('./assets/fonts/Slussen-Expanded-Black.woff2'),
+  font-family: 'expanded';
+  src: url('/lenis/assets/fonts/Slussen-Expanded-Black.woff2') format('woff2');
 }
 @font-face {
-    font-family: 'med';
-    src: url('./assets/fonts/Slussen-Medium.woff2'),
+  font-family: 'med';
+  src: url('/lenis/assets/fonts/Slussen-Medium.woff2') format('woff2');
 }
 @font-face {
-    font-family: 'regular';
-    src: url('./assets/fonts/Slussen-Regular.woff2'),
+  font-family: 'regular';
+  src: url('/lenis/assets/fonts/Slussen-Regular.woff2') format('woff2');
 }
 @font-face {
-    font-family: 'semibold';
-    src: url('./assets/fonts/Slussen-Semibold.woff2'),
+  font-family: 'semibold';
+  src: url('/lenis/assets/fonts/Slussen-Semibold.woff2') format('woff2');
 }
+
 /* format('woff2'),
 url() format('woff3'),
 url('') format('woff4'),
