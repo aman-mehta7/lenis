@@ -35,7 +35,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="md:h-[80dvh] lg:h-[150dvh] w-full bg-white md:flex justify-between md:pt-[20vw] pt-[50vw] overflow-hidden">
+    <div className="md:h-[80dvh] lg:h-[150dvh] w-full md:flex justify-between md:pt-[20vw] pt-[50vw] overflow-hidden">
       <h1 className="md:text-[4vw] text-[10vw] leading-[10vw] md:leading-[4vw] text-black font-bold font-[expanded] uppercase md:p-15 p-5">
         Lenis <br />
         <span className="text-gray-700 opacity-85">in use</span>

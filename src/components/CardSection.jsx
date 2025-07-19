@@ -3,7 +3,7 @@ import Horizontal from "./Horizontal";
 
 const CardSection = () => {
   return (
-    <div className="w-full h-[1300vw] md:h-[630vh] lg:h-[320vw] bg-white">
+    <div className="w-full h-[1300vw] md:h-[630vh] lg:h-[320vw">
       <div className=" w-full h-[100dvh] md:h-[90dvh] lg:h-[100dvh] text-right sticky top-0 -mt-[320vw] md:-mt-0">
         <h1 className=" text-right text-[4vw] leading-[4vw] text-black font-bold  font-[expanded] uppercase p-15 absolute right-0">
           Lenis brings <br />{" "}

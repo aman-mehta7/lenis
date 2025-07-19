@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Hero from "./sections/Hero";
 import WhySection from "./sections/WhySection";
 import Lenis from "@studio-freight/lenis";
@@ -9,18 +9,18 @@ import Footer from "./sections/Footer";
 import Footer2 from "./sections/Footer2";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import Gun from './components/models/Gun'
-import { Float, OrbitControls } from "@react-three/drei";
-// import Computer from "./components/models/Computer-optimized-transformed";
+import Gun from "./components/models/Gun";
+import { Float } from "@react-three/drei";
 
 const App = () => {
+  const [bgColor, setBgColor] = useState("black");
+
   useEffect(() => {
-    // Initialize Lenis
     Lenis.current = new Lenis({
-      duration: 0.6, // Control the duration of the scroll
-      easing: (t) => 1 - Math.pow(1 - t, 3), // Cubic easing for smooth stop
+      duration: 0.6,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
       smooth: true,
-      smoothTouch: true, // Enable smooth scrolling on touch devices
+      smoothTouch: true,
     });
 
     const animate = (time) => {
@@ -30,7 +30,6 @@ const App = () => {
 
     requestAnimationFrame(animate);
 
-    // Cleanup on unmount
     return () => {
       Lenis.current.destroy();
     };
@@ -38,17 +37,15 @@ const App = () => {
 
   return (
     <>
-      <main className=" absolute z-10 h-screen w-full">
+      <main className="absolute z-10 h-screen w-full">
         <Hero />
         <WhySection />
 
         <div className="w-full h-[250vh] md:h-[270vh] lg:h-[650vh]">
-          <div className="flex lg:justify-normal lg:items-baseline  items-center justify-center  gap-[10vw] lg:mt-[10vw] h-[100dvh] overflow-hidden sticky top-0 -mt-[100vw] md:-mt-0">
+          <div className="flex lg:justify-normal lg:items-baseline items-center justify-center gap-[10vw] lg:mt-[10vw] h-[100dvh] overflow-hidden sticky top-0 -mt-[100vw] md:-mt-0">
             <Horizontal
               id={"horizontal"}
-              className={
-                "h-[80vw] md:h-[33vw] lg:h-[30vw] lg:w-[31vw] md:w-[35vw] w-[70vw] mt-[10vw] border-2 border-white p-10 flex flex-col justify-between backdrop-blur-sm"
-              }
+              className="h-[80vw] md:h-[33vw] lg:h-[30vw] lg:w-[31vw] md:w-[35vw] w-[70vw] mt-[10vw] border-2 border-white p-10 flex flex-col justify-between backdrop-blur-sm"
               objects={[
                 {
                   num: "01",
@@ -79,28 +76,31 @@ const App = () => {
             />
           </div>
         </div>
+
         <Popup />
         <WhiteSection />
         <Footer />
         <Footer2 />
       </main>
 
-      <main className="fixed -z-50 bg-black h-screen w-full ">
+      <main className="fixed -z-50 w-full h-screen">
         <Canvas
           camera={{ position: [0, 0, 100] }}
-          // style={{ height: "100vh", width: "100vw" }}
+          style={{
+            background: bgColor,
+            transition: "background 1s ease",
+          }}
         >
-          {/* <OrbitControls /> */}
           <ambientLight intensity={10} color="pink" />
           <directionalLight
             intensity={5}
             position={[0, 10, 5]}
             color="purple"
           />
-          <Suspense fallback={false}>
+          <Suspense fallback={null}>
             <group position={[0, 0, 0]}>
-              <Float floatIntensity={100} >
-                <Gun />
+              <Float floatIntensity={100}>
+                <Gun setBgColor={setBgColor} />
               </Float>
             </group>
           </Suspense>
