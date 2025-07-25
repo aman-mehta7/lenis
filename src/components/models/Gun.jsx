@@ -1,162 +1,78 @@
-// import React, { useRef, useEffect } from "react";
-// import { useGLTF } from "@react-three/drei";
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/all";
-
-// export function Gun({ setBgColor }) {
-//   const gun = useRef();
-//   const { nodes, materials } = useGLTF(
-//     import.meta.env.BASE_URL + "models/gun.glb"
-//   );
-
-//   gsap.registerPlugin(ScrollTrigger);
-
-//   // First Animation Scroll Zone
-//   useEffect(() => {
-//     if (!gun.current) return;
-
-//     const tl = gsap.timeline({
-//       scrollTrigger: {
-//         trigger: "body",
-//         start: "top -20%",
-//         end: "top -1000%",
-//         scrub: true,
-//         markers: true,
-//         onEnter: () => setBgColor("black"),
-//         onLeaveBack: () => setBgColor("black"),
-//       },
-//     });
-
-//     tl.to(gun.current.position, { x: -50, ease: "none" }, 0);
-//     tl.to(gun.current.position, { x: 10, ease: "none" }, 1);
-//     tl.to(gun.current.position, { x: -70, ease: "none" }, 1.5);
-//     tl.to(gun.current.position, { x: -150, ease: "none" }, 2);
-//     tl.to(gun.current.rotation, { y: -1, ease: "none" }, 0);
-//     tl.to(gun.current.rotation, { y: 0.5, ease: "none" }, 1);
-//     tl.to(gun.current.scale, { x: 1.5, y: 1.5, z: 1.5, ease: "none" }, 1);
-
-//     return () => tl.kill();
-//   }, [setBgColor]);
-
-//   // Second Animation Scroll Zone
-//   useEffect(() => {
-//     if (!gun.current) return;
-
-//     const tl2 = gsap.timeline({
-//       scrollTrigger: {
-//         trigger: "body",
-//         start: "top -2200%",
-//         end: "top -4000%",
-//         scrub: true,
-//         markers: true,
-//         onEnter: () => setBgColor("white"),
-//         onLeaveBack: () => setBgColor("black"),
-//       },
-//     });
-
-//     tl2.to(gun.current.position, { x: -50, ease: "none" }, 0);
-//     tl2.to(gun.current.position, { x: 10, ease: "none" }, 1);
-//     tl2.to(gun.current.position, { x: -70, ease: "none" }, 1.5);
-//     tl2.to(gun.current.position, { x: -150, ease: "none" }, 2);
-//     tl2.to(gun.current.rotation, { y: -1, ease: "none" }, 0);
-//     tl2.to(gun.current.rotation, { y: 0.5, ease: "none" }, 1);
-//     tl2.to(gun.current.scale, { x: 1.5, y: 1.5, z: 1.5, ease: "none" }, 1);
-
-//     return () => tl2.kill();
-//   }, [setBgColor]);
-
-//   return (
-//     <group dispose={null}>
-//       <group ref={gun} rotation={[-Math.PI / 2, 0, 0]}>
-//         <mesh
-//           geometry={nodes.Object_2.geometry}
-//           material={materials.aiStandardSurface1SG}
-//         />
-//         <mesh
-//           geometry={nodes.Object_3.geometry}
-//           material={materials.aiStandardSurface2SG}
-//         />
-//         <mesh
-//           geometry={nodes.Object_4.geometry}
-//           material={materials.aiStandardSurface2SG}
-//         />
-//       </group>
-//     </group>
-//   );
-// }
-
-// useGLTF.preload(import.meta.env.BASE_URL + "models/gun.glb");
-
-// export default Gun;
-
-
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useLayoutEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export function Gun({ setBgColor }) {
+gsap.registerPlugin(ScrollTrigger);
+
+export function Gun() {
   const gun = useRef();
   const { scene } = useGLTF(import.meta.env.BASE_URL + "models/gun.glb");
 
-  gsap.registerPlugin(ScrollTrigger);
+  const isMobile = window.innerWidth < 768;
 
-  // First Scroll Animation
-  useEffect(() => {
+  function getScale() {
+    return isMobile ? [0.5, 0.5, 0.5] : [1, 1, 1];
+  }
+
+  const [scale, setScale] = useState(getScale());
+
+  useLayoutEffect(() => {
+    const handleResize = () => setScale(getScale());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useLayoutEffect(() => {
     if (!gun.current) return;
 
-    const tl = gsap.timeline({
+    // Wait for one frame to ensure mount
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+
+    const tl1 = gsap.timeline({
       scrollTrigger: {
         trigger: "body",
         start: "top -20%",
         end: "top -1000%",
         scrub: true,
-        markers: true,
-        onEnter: () => setBgColor("black"),
-        onLeaveBack: () => setBgColor("black"),
       },
     });
 
-    tl.to(gun.current.position, { x: -50, ease: "none" }, 0)
+    tl1.to(gun.current.position, { x: -50, ease: "none" }, 0)
       .to(gun.current.position, { x: 10, ease: "none" }, 1)
       .to(gun.current.position, { x: -70, ease: "none" }, 1.5)
-      .to(gun.current.position, { x: -150, ease: "none" }, 2)
-      .to(gun.current.rotation, { y: -1, ease: "none" }, 0)
+      .to(gun.current.position, { x: -400, ease: "none" }, 2)
+      .to(gun.current.rotation, { y: -2.5, x: 0.5, z: 2, ease: "none" }, 0)
       .to(gun.current.rotation, { y: 0.5, ease: "none" }, 1)
       .to(gun.current.scale, { x: 1.5, y: 1.5, z: 1.5, ease: "none" }, 1);
-
-    return () => tl.kill();
-  }, [setBgColor]);
-
-  // Second Scroll Animation
-  useEffect(() => {
-    if (!gun.current) return;
 
     const tl2 = gsap.timeline({
       scrollTrigger: {
         trigger: "body",
-        start: "top -2200%",
-        end: "top -4000%",
+        start: "top -1500%",
+        end: "top -3000%",
         scrub: true,
-        markers: true,
-        onEnter: () => setBgColor("white"),
-        onLeaveBack: () => setBgColor("black"),
       },
     });
 
     tl2.to(gun.current.position, { x: -50, ease: "none" }, 0)
-      .to(gun.current.position, { x: 10, ease: "none" }, 1)
-      .to(gun.current.position, { x: -70, ease: "none" }, 1.5)
-      .to(gun.current.position, { x: -150, ease: "none" }, 2)
-      .to(gun.current.rotation, { y: -1, ease: "none" }, 0)
-      .to(gun.current.rotation, { y: 0.5, ease: "none" }, 1)
-      .to(gun.current.scale, { x: 1.5, y: 1.5, z: 1.5, ease: "none" }, 1);
+      .to(gun.current.position, { x: -100, ease: "none" }, 0.5)
+      .to(gun.current.position, { x: 300, y: 50, ease: "none" }, 1)
+      .to(gun.current.rotation, { y: 0, x: 3, z: 3, ease: "none" }, 0)
+      .to(gun.current.rotation, { y: 0, x: 3, z: 5, ease: "none" }, 0.5)
+      .to(gun.current.scale, { x: 1, y: 1, z: 1, ease: "none" }, 0)
+      .to(gun.current.scale, { x: 0.8, y: 0.8, z: 0.8, ease: "none" }, 0.5);
 
-    return () => tl2.kill();
-  }, [setBgColor]);
+    return () => {
+      tl1.kill();
+      tl2.kill();
+    };
+  }, []);
 
   return (
-    <group ref={gun} dispose={null} rotation={[-Math.PI / 2, 0, 0]}>
+    <group ref={gun} scale={scale} dispose={null} rotation={[-Math.PI / 10, 0, 0]}>
       <primitive object={scene} />
     </group>
   );
@@ -165,4 +81,3 @@ export function Gun({ setBgColor }) {
 useGLTF.preload(import.meta.env.BASE_URL + "models/gun.glb");
 
 export default Gun;
-

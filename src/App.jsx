@@ -41,43 +41,79 @@ const App = () => {
         <Hero />
         <WhySection />
 
-        <div className="w-full h-[250vh] md:h-[270vh] lg:h-[650vh]">
-          <div className="flex lg:justify-normal lg:items-baseline items-center justify-center gap-[10vw] lg:mt-[10vw] h-[100dvh] overflow-hidden sticky top-0 -mt-[100vw] md:-mt-0">
-            <Horizontal
-              id={"horizontal"}
-              className="h-[80vw] md:h-[33vw] lg:h-[30vw] lg:w-[31vw] md:w-[35vw] w-[70vw] mt-[10vw] border-2 border-white p-10 flex flex-col justify-between backdrop-blur-sm"
-              objects={[
-                {
-                  num: "01",
-                  title:
-                    "Loss of performance budget due to using CSS transforms",
-                },
-                {
-                  num: "02",
-                  title:
-                    "Inaccessibility from no page search support and native scrollbar",
-                },
-                {
-                  num: "03",
-                  title:
-                    "Non-negligible import costs (12.1kb - 24.34kb gzipped)",
-                },
-                {
-                  num: "04",
-                  title:
-                    "Limited animation systems for complex, scroll-based animations",
-                },
-                {
-                  num: "05",
-                  title:
-                    "Erasing native APIs like Intersection-Observer, CSS Sticky, etc.",
-                },
-              ]}
-            />
+        <div className="hidden md:block">
+          <div className="w-full h-[250vh] md:h-[270vh] lg:h-[650vh]">
+            <div className="flex lg:justify-normal lg:items-baseline items-center justify-center gap-[10vw] lg:mt-[10vw] h-[100dvh] overflow-hidden sticky top-0 -mt-[100vw] md:-mt-0">
+              <Horizontal
+                id={"horizontal"}
+                className="h-[80vw] md:h-[33vw] lg:h-[30vw] lg:w-[31vw] md:w-[35vw] w-[70vw] mt-[10vw] border-2 border-white p-10 flex flex-col justify-between backdrop-blur-sm"
+                objects={[
+                  {
+                    num: "01",
+                    title:
+                      "Loss of performance budget due to using CSS transforms",
+                  },
+                  {
+                    num: "02",
+                    title:
+                      "Inaccessibility from no page search support and native scrollbar",
+                  },
+                  {
+                    num: "03",
+                    title:
+                      "Non-negligible import costs (12.1kb - 24.34kb gzipped)",
+                  },
+                  {
+                    num: "04",
+                    title:
+                      "Limited animation systems for complex, scroll-based animations",
+                  },
+                  {
+                    num: "05",
+                    title:
+                      "Erasing native APIs like Intersection-Observer, CSS Sticky, etc.",
+                  },
+                ]}
+              />
+            </div>
           </div>
         </div>
 
-        <Popup />
+        <div className="flex flex-col md:hidden items-center mb-72 ">
+          {/* <div className="w-full h-[250vh] md:h-[270vh] lg:h-[650vh]"> */}
+          {/* <div className="flex lg:justify-normal lg:items-baseline items-center justify-center gap-[10vw] lg:mt-[10vw] h-[100dvh] overflow-hidden sticky top-0 -mt-[100vw] md:-mt-0"></div> */}
+          <Horizontal
+            // id={"horizontal"}
+            className="h-[80vw] md:h-[33vw] lg:h-[30vw] lg:w-[31vw] md:w-[35vw] w-[70vw] mt-[10vw] border-2 border-white p-10 flex flex-col justify-between backdrop-blur-sm"
+            objects={[
+              {
+                num: "01",
+                title: "Loss of performance budget due to using CSS transforms",
+              },
+              {
+                num: "02",
+                title:
+                  "Inaccessibility from no page search support and native scrollbar",
+              },
+              {
+                num: "03",
+                title: "Non-negligible import costs (12.1kb - 24.34kb gzipped)",
+              },
+              {
+                num: "04",
+                title:
+                  "Limited animation systems for complex, scroll-based animations",
+              },
+              {
+                num: "05",
+                title:
+                  "Erasing native APIs like Intersection-Observer, CSS Sticky, etc.",
+              },
+            ]}
+          />
+        </div>
+
+        <Popup setBgColor={setBgColor} />
         <WhiteSection />
         <Footer />
         <Footer2 />
@@ -88,7 +124,6 @@ const App = () => {
           camera={{ position: [0, 0, 100] }}
           style={{
             background: bgColor,
-            transition: "background 1s ease",
           }}
         >
           <ambientLight intensity={10} color="pink" />
@@ -100,7 +135,7 @@ const App = () => {
           <Suspense fallback={null}>
             <group position={[0, 0, 0]}>
               <Float floatIntensity={100}>
-                <Gun setBgColor={setBgColor} />
+                <Gun />
               </Float>
             </group>
           </Suspense>

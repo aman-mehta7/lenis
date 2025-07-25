@@ -6,7 +6,7 @@ import AnimatedButton from "../components/AnimatedButton";
 
 const Footer2 = () => {
   return (
-    <div className=" text-black p-15 relative h-fit md:h-[78vh] lg:h-fit w-full pt-[50vh] md:pt-0 ">
+    <div className=" bg-transparent text-black p-15 relative h-fit md:h-[78vh] lg:h-fit w-full pt-[50vh] md:pt-0 ">
       <div>
         <div className="uppercase font-[compressed] md:text-[10vw] md:leading-[10vw] text-[20vw] leading-[20vw] md:flex md:flex-col md:gap-[20vw] lg:gap-0 ">
           <h1>

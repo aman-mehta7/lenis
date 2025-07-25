@@ -1,116 +1,86 @@
-import React, { useEffect } from "react";
+import React from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
-const Popup = () => {
+const Popup = ({ setBgColor }) => {
   gsap.registerPlugin(ScrollTrigger);
 
-  // --vh setup for mobile viewport height
-  useEffect(() => {
-    const setVH = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    };
-    setVH();
-    window.addEventListener("resize", setVH);
-    return () => window.removeEventListener("resize", setVH);
-  }, []);
+useGSAP(() => {
 
-  useGSAP(() => {
-    gsap.fromTo(
-      ".ZoomOut",
-      {
-        scale: 1,
-        opacity: 1,
-      },
-      {
-        scale: 2,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: ".ZoomOut",
-          start: "bottom 30%",
-          end: "top -70%",
-          scrub: true,
-        },
-      }
-    );
+  const mobile = window.innerWidth < 768
 
-    gsap.fromTo(
-      ".apper",
-      {
-        scale: 0,
-      },
-      {
-        scale: 8, // Reduced from 40 to avoid layout bugs
-        transformOrigin: "center 30%",
-        scrollTrigger: {
-          trigger: ".apper",
-          start: "bottom 50%",
-          end: "top -3000%",
-          scrub: true,
-        },
-      }
-    );
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      // markers: true,
+      trigger: "#mainn",
+      start: "top 0%",
+      end: mobile ? "top -200%" : "top -400%",
+      scrub: true,
+      pin: true,
+      onLeave: () => setBgColor("white"),
+      onEnterBack: () => setBgColor("black"),
+    },
+  });
 
-    gsap.fromTo(
-      ".apper2",
-      {
-        width: "0vw",
-        height: "100%",
-        opacity: 0,
-      },
-      {
-        width: "100vw",
-        height: "100%",
-        opacity: 1,
-        scrollTrigger: {
-          trigger: ".apper2",
-          start: "top -500%",
-          end: "top -1000%",
-          scrub: true,
-        },
-      }
-    );
+  tl.to("#ZoomOut", {
+    scale: 2,
+    duration: 0.5,
+    x: -500,
+    y: -500,
+    ease: "none",
+  }, 0);
 
-    // OPTIONAL: Animate canvas color (if using a <canvas> element)
-    gsap.to("canvas", {
-      backgroundColor: "#ffffff",
-      scrollTrigger: {
-        trigger: ".apper2",
-        start: "top -500%",
-        end: "top -1000%",
-        scrub: true,
-      },
-    });
-  }, []);
+  tl.to("#ZoomOut2", {
+    scale: 2,
+    duration: 0.5,
+    x: 300,
+    y: 300,
+    ease: "none",
+  }, 0);
+
+  tl.fromTo(
+    "#popup",
+    { scale: 0, transformOrigin: "center 30%", opacity: 0.9 },
+    mobile ? { scale: 40, transformOrigin: "center 30%", duration: 3.5, opacity: 1, ease: "none" } : { scale: 15, transformOrigin: "center 30%", duration: 3, opacity: 1, ease: "none" },
+    0
+  );
+
+tl.to("#expand", {
+  width: "100vw",
+  height: "100vh",
+  duration: 2,
+  ease: "none",
+}, 3.5);
+
+});
+
 
   return (
-    <div className="uppercase mt-[15vw] w-full" style={{ height: "calc(var(--vh, 1vh) * 1100)" }}>
-      <div className="sticky top-0 w-full" style={{ height: "calc(var(--vh, 1vh) * 100)" }}>
-        <div className="overflow-hidden w-full h-full pt-[5vw] md:p-0">
-          {/* First Zooming Heading */}
-          <h1 className="ZoomOut text-[20vw] leading-[20vw] md:text-[8.5vw] md:leading-[8vw] font-[compressed] h-fit">
-            so we built <br />
-            <span className="text-color">web scrolling</span>
+    <>
+      <div className="md:h-[500vh] h-[400vh] w-full bg-transparent overflow-hidden uppercase text-[8vw] leading-[7vw] font-[compressed] mt-40 ">
+        <div
+          id="mainn"
+          className=" relative h-dvh w-full flex flex-col items-start justify-between p-15"
+        >
+          <h1 id="ZoomOut">
+            so we built <br /> <span className="text-color">web scrolling</span>
           </h1>
-
-          {/* Animated Large Text & White Panel */}
-          <div className="absolute inset-0 overflow-hidden bg-transparent flex items-center justify-center">
-            <h1 className="apper text-center md:text-[23vw] text-[29vw] leading-[23vw] lg:text-[8.5vw] md:leading-[23vw] lg:leading-[8vw] font-[expanded] h-fit mt-[30vw] md:mt-[6vw] lg:mt-0">
-              ENTER <br />
-              LENIS
+          <div className="  w-full flex items-center justify-center text-center font-[expanded]">
+            <h1 id="popup">
+              Enter <br /> Lenis
             </h1>
-            <div className="apper2 bg-white absolute z-10 pointer-events-none" />
+            <div
+              id="expand"
+              className=" absolute top-0 h-screen w-0 bg-white "
+            />
           </div>
-
-          {/* Final ZoomOut Heading */}
-          <h1 className="ZoomOut text-[8.5vw] text-right leading-[20vw] md:text-[8.5vw] md:leading-[8vw] font-[compressed] h-fit mt-[100vw] md:mt-[55vw] lg:mt-[23vw]">
-            As it should be
-          </h1>
+          <div className="w-full text-right">
+            <h1 id="ZoomOut2">As it should be</h1>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

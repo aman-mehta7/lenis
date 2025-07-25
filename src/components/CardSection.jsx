@@ -3,7 +3,8 @@ import Horizontal from "./Horizontal";
 
 const CardSection = () => {
   return (
-    <div className="w-full h-[1300vw] md:h-[630vh] lg:h-[320vw">
+    <div className="w-full h-[1300vw] md:h-[630vh] lg:h-[320vw]">
+      <div className="bg-white backdrop-blur-xl mask-gradient-bottom w-full h-[5vw] relative"/>   
       <div className=" w-full h-[100dvh] md:h-[90dvh] lg:h-[100dvh] text-right sticky top-0 -mt-[320vw] md:-mt-0">
         <h1 className=" text-right text-[4vw] leading-[4vw] text-black font-bold  font-[expanded] uppercase p-15 absolute right-0">
           Lenis brings <br />{" "}
@@ -13,11 +14,11 @@ const CardSection = () => {
         <div className=" h-full w-full overflow-hidden">
           <div
             id="horivat"
-            className="flex pt-[80vw] md:pt-[30vw] lg:p-0  pl-[95vw] md:pl-[30vw] lg:pl-[26vw] overflow-hidden text-left  h-full"
+            className=" pl-[25vw] pt-60 flex overflow-hidden text-left  h-full"
           >
             <Horizontal
               className={
-                "h-[80vw] md:h-[33vw] lg:h-[30vw] lg:w-[31vw] md:w-[35vw] w-[80vw] mt-[10vw] md:mt-[5vw] lg:mt-[14vw] -ml-[80vw] md:-ml-[26.2vw] lg:-ml-[22.5vw]  border-2 border-black text-black p-10 flex flex-col justify-between backdrop-blur-sm"
+                 " h-[80vw] md:h-[33vw] lg:h-[30vw] lg:w-[32vw] md:w-[35vw] w-[80vw] -ml-[80vw] md:-ml-[26.2vw] lg:-ml-[23vw]  border-2 border-black text-black p-10 flex flex-col justify-between backdrop-blur-sm"
               }
               objects={[
                 {
