@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
 
-const AnimatedButton = ({ icon, text, iconSize, arrow, bgColor, color,id }) => {
+const AnimatedButton = ({ icon, text, arrow, bgColor, color}) => {
   const textRef = useRef(null);
   const bgRef = useRef(null);
 
