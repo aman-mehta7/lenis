@@ -10,7 +10,7 @@ import Footer2 from "./sections/Footer2";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import Gun from "./components/models/Gun";
-import { Float } from "@react-three/drei";
+import { Float, Loader } from "@react-three/drei";
 
 const App = () => {
   const [bgColor, setBgColor] = useState("black");
@@ -140,6 +140,7 @@ const App = () => {
             </group>
           </Suspense>
         </Canvas>
+        <Loader />
       </main>
     </>
   );
