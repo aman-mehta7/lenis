@@ -24,15 +24,17 @@ const Footer2 = () => {
         <div className="uppercase -mb-[1.5vw] ">
           <div className="mb-[2vw] mt-[8vw] md:mt-0" >
 
-          <AnimatedButton
-          id={"footer"}
-            bgColor={"black"}
-            color={"#fff"}
-            text={"Let's build together"}
-            arrow={<GoArrowUpRight />}
+         <a href="https://github.com/aman-mehta7" target="_blank" rel="noopener noreferrer">
+            <AnimatedButton
+              id={"footer"}
+              bgColor={"black"}
+              color={"#fff"}
+              text={"Let's build together"}
+              arrow={<GoArrowUpRight />}
             icon={<FaGithub />}
             iconSize={"1.5"}
             />
+          </a>
             </div>
           {/* <button className=" uppercase w-[20vw] h-[3.5vw] text-nowrap bg-color text-black font-[bold] text-[1vw] flex items-center justify-between px-0.5 relative mb-[2vw]">
             <div className=" h-[95.5%] w-[3.25vw] bg-white text-white flex items-center justify-center text-[1.5vw]">
@@ -46,12 +48,12 @@ const Footer2 = () => {
               <GoArrowUpRight />
             </span>
           </button> */}
-          <div className="flex flex-wrap md:flex-nowrap md:gap-[2vw] gap-[4vw] font-[semibold] mt-[5vw] md:mt-0">
+          {/* <div className="flex flex-wrap md:flex-nowrap md:gap-[2vw] gap-[4vw] font-[semibold] mt-[5vw] md:mt-0">
             <a href="">Twitter</a>
             <a href="">GitHub</a>
             <a href="">Website</a>
             <a href="">Designed by Studio Freight</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import "../index.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -177,7 +177,15 @@ const Hero = () => {
               SMOOTH SCROLL
             </h1>
             <p className=" mb-6 font-[bold] uppercase text-[#585858] -mt-[.5vw] ">
-              © 2025 darkroom.engineering
+              inspired by darkroom.engineering, <br/>
+              <a
+                href="https://www.lenis.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#FF98A2] hover:underline"
+              >
+                Checkout lenis.dev
+              </a>
             </p>
           </div>
         </div>
@@ -204,8 +212,10 @@ const Hero = () => {
             <div className="">
               <div className="flex flex-col lg:flex-row items-center md:items-end gap-2 lg:gap-10 md:gap-2 w-full">
 
-                <AnimatedButton id={"hero1"} bgColor={"white"} icon={<FaGithub />} text="DOCUMENTATION" arrow={  <GoArrowUpRight />} iconSize={"1.5"} />
-                <AnimatedButton id={"hero2"} bgColor={"white"}  icon={<CiHeart />} text=" BECOME A SPONSER" arrow={  <GoArrowUpRight />} iconSize={"1.5"} />
+               <a href="https://github.com/aman-mehta7" target="_blank" rel="noopener noreferrer">
+                  <AnimatedButton id={"hero1"} bgColor={"white"} icon={<FaGithub />} text="My Github" arrow={  <GoArrowUpRight />} iconSize={"1.5"} />
+                </a>
+                <AnimatedButton id={"hero2"} bgColor={"white"}  icon={<CiHeart />} text="Just Having Fun" arrow={  <GoArrowUpRight />} iconSize={"1.5"} />
                 
                 {/* <button
                   onMouseEnter={() => {

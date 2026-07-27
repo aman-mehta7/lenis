@@ -10,10 +10,14 @@ import Footer2 from "./sections/Footer2";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import Gun from "./components/models/Gun";
-import { Float, Loader } from "@react-three/drei";
+import { Float} from "@react-three/drei";
+import Loader from "./components/Loader";
+import LoadingPage from "./components/LoadingPage";
 
 const App = () => {
   const [bgColor, setBgColor] = useState("black");
+    const [loaded, setLoaded] = useState(false);
+    const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     Lenis.current = new Lenis({
@@ -22,6 +26,8 @@ const App = () => {
       smooth: true,
       smoothTouch: true,
     });
+
+    if (!loaded) Lenis.current.stop();
 
     const animate = (time) => {
       Lenis.current.raf(time);
@@ -35,8 +41,16 @@ const App = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!Lenis.current) return;
+    if (loaded) Lenis.current.start();
+    else Lenis.current.stop();
+  }, [loaded]);
+
   return (
     <>
+      {!loaded && <Loader progress={progress} onFinish={() => setLoaded(true)} />}
+
       <main className="absolute z-10 h-screen w-full">
         <Hero />
         <WhySection />
@@ -132,6 +146,7 @@ const App = () => {
             position={[0, 10, 5]}
             color="purple"
           />
+          <LoadingPage onProgress={setProgress} />
           <Suspense fallback={null}>
             <group position={[0, 0, 0]}>
               <Float floatIntensity={100}>
@@ -140,7 +155,7 @@ const App = () => {
             </group>
           </Suspense>
         </Canvas>
-        <Loader />
+
       </main>
     </>
   );

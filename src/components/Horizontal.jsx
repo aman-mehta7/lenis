@@ -13,7 +13,6 @@ const Horizontal = ({objects,id,className}) => {
         x: 1500,
       },
       {
-        opacity: 1,
         x: -2200,
         duration: 1,
         scrollTrigger: {
@@ -31,9 +30,11 @@ gsap.fromTo(
   {
     x: 500,
     y: 700,
+    opacity: 0,
   },
   {
     x: -20,
+    opacity: 1,
     y: (i) => -200 + i * 40,
     stagger: {
       each: 0.45,
