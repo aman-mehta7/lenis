@@ -177,14 +177,14 @@ const Hero = () => {
               SMOOTH SCROLL
             </h1>
             <p className=" mb-6 font-[bold] uppercase text-[#585858] -mt-[.5vw] ">
-              inspired by darkroom.engineering, <br/>
+              inspired by-
               <a
                 href="https://www.lenis.dev/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#FF98A2] hover:underline"
               >
-                Checkout lenis.dev
+               lenis.dev
               </a>
             </p>
           </div>
@@ -205,64 +205,24 @@ const Hero = () => {
                 </h1>
               </div>
               <h1 className=" w-[88vw] md:w-full text-wrap md:text-nowrap text-left font-[semibold] uppercase leading-[5vw] md:text-[.9vw] md:leading-[1.1vw]">
-                A smooth scroll library <br /> fresh out of darkroom.engineering
-                <br /> website designed by Studio Freight
+                <a href="https://darkroom.engineering/" target="_blank" rel="noopener noreferrer">
+                darkroom.engineering <br />
+                </a>
+                & <br />
+                <a href="https://studiofreight.com/" target="_blank" rel="noopener noreferrer">
+                Studio Freight
+                </a>
+                <br />  
               </h1>
             </div>
             <div className="">
-              <div className="flex flex-col lg:flex-row items-center md:items-end gap-2 lg:gap-10 md:gap-2 w-full">
+              <div className="flex flex-col lg:flex-row  md:items-end gap-2 lg:gap-10 md:gap-2 w-full">
 
                <a href="https://github.com/aman-mehta7" target="_blank" rel="noopener noreferrer">
                   <AnimatedButton id={"hero1"} bgColor={"white"} icon={<FaGithub />} text="My Github" arrow={  <GoArrowUpRight />} iconSize={"1.5"} />
                 </a>
                 <AnimatedButton id={"hero2"} bgColor={"white"}  icon={<CiHeart />} text="Just Having Fun" arrow={  <GoArrowUpRight />} iconSize={"1.5"} />
                 
-                {/* <button
-                  onMouseEnter={() => {
-                    buttonAnimationEnter();
-                    buttonAnimationEnter2();
-                  }}
-                  onMouseLeave={() => {
-                    buttonAnimationLeave();
-                    buttonAnimationLeave2();
-                  }}
-                  className="relative overflow-hidden group w-[20vw] h-[3.5vw] text-nowrap bg-color text-black font-[bold] text-[1vw] flex items-center justify-between px-0.5"
-                >
-                  <div className="h-[95.5%] w-[3.25vw] bg-black text-white flex items-center justify-center text-[1.5vw] z-50">
-                    <FaGithub />
-                  </div>
-
-                  <div
-                    ref={btn}
-                    className=" z-20 flex items-center justify-center gap-[1vw]  absolute bottom-0 left-0 w-full h-full  "
-                  >
-                    <span className=" ml-[2vw] z-10">DOCUMENTATION</span>
-                    <span className="scale-125 z-10">
-                      <GoArrowUpRight />
-                    </span>
-                  </div>
-
-                  <div
-                    ref={btn2}
-                    className=" z-20 flex items-center justify-center gap-[1vw] absolute bottom-0 left-0 w-full h-full "
-                  >
-                    <span className=" ml-[2vw] z-10">DOCUMENTATION</span>
-                    <span className="scale-125 z-10">
-                      <GoArrowUpRight />
-                    </span>
-                  </div>
-
-                </button> */}
-{/* 
-                <button className=" w-[20vw] h-[3.5vw]  text-nowrap bg-color text-black font-[bold] text-[1vw] flex items-center justify-between px-0.5 relative">
-                  <div className=" h-[95.5%] w-[3.25vw] bg-black text-white flex items-center justify-center text-[2vw] font-bold ">
-                    <CiHeart />
-                  </div>{" "}
-                  BECOME A SPONSER{" "}
-                  <span className="font-bold scale-125 mr-5 -ml-5">
-                    <GoArrowUpRight />
-                  </span>
-                </button> */}
               </div>
             </div>
           </div>

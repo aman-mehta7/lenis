@@ -34,7 +34,7 @@ url('') format('woff6'); */
 
 
 html {
-    overflow: hidden;
+    overflow: auto;
 }
 
 body{
@@ -42,16 +42,29 @@ body{
     padding: 0;
     box-sizing: border-box;
     color: #ffffff;
-    overflow: hidden;
+    overflow: auto;
 }
 
 ::-webkit-scrollbar {
-    display: none;
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF98A2;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff7a8a;
 }
 
 * {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: #FF98A2 #111;
 }
 
 @layer utilities {
@@ -97,26 +110,27 @@ body{
 }
 
 .loader-content {
-  width: 320px;
+  width: min(320px, 85vw);
   color: white;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: clamp(16px, 4vw, 24px);
+  padding: 0 16px;
 }
 
 .loader-brand {
   font-family: 'compressed';
-  font-size: 48px;
-  letter-spacing: 8px;
+  font-size: clamp(32px, 8vw, 48px);
+  letter-spacing: clamp(4px, 1.5vw, 8px);
   color: #FF98A2;
-  margin-bottom: 8px;
+  margin-bottom: clamp(4px, 1vw, 8px);
 }
 
 .loader-ring {
-  width: 80px;
-  height: 80px;
+  width: clamp(56px, 12vw, 80px);
+  height: clamp(56px, 12vw, 80px);
   animation: loader-spin 1.5s linear infinite;
 }
 
@@ -154,7 +168,7 @@ body{
 
 .loader-counter {
   font-family: 'bold';
-  font-size: 72px;
+  font-size: clamp(48px, 14vw, 72px);
   line-height: 1;
   display: flex;
   align-items: baseline;
@@ -163,7 +177,7 @@ body{
 
 .loader-percent {
   font-family: 'regular';
-  font-size: 24px;
+  font-size: clamp(16px, 5vw, 24px);
   color: #888;
 }
 

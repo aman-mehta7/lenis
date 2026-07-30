@@ -42,7 +42,7 @@ useGSAP(() => {
   tl.fromTo(
     "#popup",
     { scale: 0, transformOrigin: "center 30%", opacity: 0.9 },
-    mobile ? { scale: 40, transformOrigin: "center 30%", duration: 3.5, opacity: 1, ease: "none" } : { scale: 15, transformOrigin: "center 30%", duration: 3, opacity: 1, ease: "none" },
+    mobile ? { scale: 40, transformOrigin: "center 25%", duration: 3.5, opacity: 1, ease: "none" } : { scale: 15, transformOrigin: "center 30%", duration: 3, opacity: 1, ease: "none" },
     0
   );
 
@@ -66,7 +66,7 @@ tl.to("#expand", {
           <h1 id="ZoomOut">
             so we built <br /> <span className="text-color">web scrolling</span>
           </h1>
-          <div className="  w-full flex items-center justify-center text-center font-[expanded]">
+          <div className="w-full flex items-center justify-center text-center font-[expanded]">
             <h1 id="popup">
               Enter <br /> Lenis
             </h1>

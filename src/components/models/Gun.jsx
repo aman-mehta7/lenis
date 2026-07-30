@@ -12,7 +12,7 @@ export function Gun() {
   const isMobile = window.innerWidth < 768;
 
   function getScale() {
-    return isMobile ? [0.5, 0.5, 0.5] : [1, 1, 1];
+    return isMobile ? [0.4, 0.4, 0.4] : [1, 1, 1];
   }
 
   const [scale, setScale] = useState(getScale());
@@ -26,10 +26,52 @@ export function Gun() {
   useLayoutEffect(() => {
     if (!gun.current) return;
 
-    // Wait for one frame to ensure mount
     requestAnimationFrame(() => {
       ScrollTrigger.refresh();
     });
+
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      const tl1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: "body",
+          start: "top -20%",
+          end: "top -1000%",
+          scrub: true,
+        },
+      });
+
+    tl1.to(gun.current.position, { x: -30, ease: "none" }, 0)
+      .to(gun.current.position, { x: 10, ease: "none" }, 1)
+      .to(gun.current.position, { x: -90, ease: "none" }, 1.5)
+      .to(gun.current.position, { x: -400, ease: "none" }, 2)
+      .to(gun.current.rotation, { y: -2.5, x: 0.5, z: 2, ease: "none" }, 0)
+      .to(gun.current.rotation, { y: 0.5, ease: "none" }, 1)
+      .to(gun.current.scale, { x: 1, y: 1, z: 1, ease: "none" }, 1);
+
+      const tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: "body",
+          start: "top -1500%",
+          end: "top -3000%",
+          scrub: true,
+        },
+      });
+
+    tl2.to(gun.current.position, { x: -30, ease: "none" }, 0)
+      .to(gun.current.position, { x: 10, ease: "none" }, 0.5)
+      .to(gun.current.position, { x: 30, y: 50, ease: "none" }, 1)
+      .to(gun.current.rotation, { y: 0, x: 3, z: 3, ease: "none" }, 0)
+      .to(gun.current.rotation, { y: 0, x: 3, z: 5, ease: "none" }, 0.5)
+      .to(gun.current.scale, { x: .5, y: .5, z: .5, ease: "none" }, 0)
+      .to(gun.current.scale, { x: 0.8, y: 0.8, z: 0.8, ease: "none" }, 0.5);
+
+      return () => {
+        tl1.kill();
+        tl2.kill();
+      };
+    }
 
     const tl1 = gsap.timeline({
       scrollTrigger: {
