@@ -221,7 +221,10 @@ const Hero = () => {
                <a href="https://github.com/aman-mehta7" target="_blank" rel="noopener noreferrer">
                   <AnimatedButton id={"hero1"} bgColor={"white"} icon={<FaGithub />} text="My Github" arrow={  <GoArrowUpRight />} iconSize={"1.5"} />
                 </a>
+
+                   <a href="https://www.linkedin.com/in/aman-mehta-71150b3a1?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer"> 
                 <AnimatedButton id={"hero2"} bgColor={"white"}  icon={<CiHeart />} text="Just Having Fun" arrow={  <GoArrowUpRight />} iconSize={"1.5"} />
+                </a>
                 
               </div>
             </div>
